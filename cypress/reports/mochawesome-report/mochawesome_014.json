@@ -1,0 +1,220 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-10-25T10:34:15.650Z",
+    "end": "2021-10-25T10:34:21.499Z",
+    "duration": 5849,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e6eed81a-c826-4246-a010-4bb7bcf8ed09",
+      "title": "",
+      "fullFile": "cypress/integration/2-advanced-examples/spies_stubs_clocks.spec.js",
+      "file": "cypress/integration/2-advanced-examples/spies_stubs_clocks.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "06c7364b-553f-4b6f-b485-7f843cc201d1",
+          "title": "Spies, Stubs, and Clock",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "cy.spy() - wrap a method in a spy",
+              "fullTitle": "Spies, Stubs, and Clock cy.spy() - wrap a method in a spy",
+              "timedOut": null,
+              "duration": 516,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// https://on.cypress.io/spy\ncy.visit('https://example.cypress.io/commands/spies-stubs-clocks');\nconst obj = {\n  foo() {}\n};\nconst spy = cy.spy(obj, 'foo').as('anyArgs');\nobj.foo();\nexpect(spy).to.be.called;",
+              "err": {},
+              "uuid": "cb859495-76fe-4ca0-9228-c9555ca9912d",
+              "parentUUID": "06c7364b-553f-4b6f-b485-7f843cc201d1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.spy() retries until assertions pass",
+              "fullTitle": "Spies, Stubs, and Clock cy.spy() retries until assertions pass",
+              "timedOut": null,
+              "duration": 2553,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io/commands/spies-stubs-clocks');\nconst obj = {\n  /**\n   * Prints the argument passed\n   * @param x {any}\n  */\n  foo(x) {\n    console.log('obj.foo called with', x);\n  }\n};\ncy.spy(obj, 'foo').as('foo');\nsetTimeout(() => {\n  obj.foo('first');\n}, 500);\nsetTimeout(() => {\n  obj.foo('second');\n}, 2500);\ncy.get('@foo').should('have.been.calledTwice');",
+              "err": {},
+              "uuid": "261d54fc-3996-4174-92df-93702e933feb",
+              "parentUUID": "06c7364b-553f-4b6f-b485-7f843cc201d1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.stub() - create a stub and/or replace a function with stub",
+              "fullTitle": "Spies, Stubs, and Clock cy.stub() - create a stub and/or replace a function with stub",
+              "timedOut": null,
+              "duration": 186,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// https://on.cypress.io/stub\ncy.visit('https://example.cypress.io/commands/spies-stubs-clocks');\nconst obj = {\n  /**\n   * prints both arguments to the console\n   * @param a {string}\n   * @param b {string}\n  */\n  foo(a, b) {\n    console.log('a', a, 'b', b);\n  }\n};\nconst stub = cy.stub(obj, 'foo').as('foo');\nobj.foo('foo', 'bar');\nexpect(stub).to.be.called;",
+              "err": {},
+              "uuid": "b231256b-35e7-4ffa-ac51-4fa75dfb905c",
+              "parentUUID": "06c7364b-553f-4b6f-b485-7f843cc201d1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.clock() - control time in the browser",
+              "fullTitle": "Spies, Stubs, and Clock cy.clock() - control time in the browser",
+              "timedOut": null,
+              "duration": 363,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// https://on.cypress.io/clock\n// create the date in UTC so its always the same\n// no matter what local timezone the browser is running in\nconst now = new Date(Date.UTC(2017, 2, 14)).getTime();\ncy.clock(now);\ncy.visit('https://example.cypress.io/commands/spies-stubs-clocks');\ncy.get('#clock-div').click().should('have.text', '1489449600');",
+              "err": {},
+              "uuid": "6e48515e-bace-4bfd-8d38-f8b96b448c98",
+              "parentUUID": "06c7364b-553f-4b6f-b485-7f843cc201d1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.tick() - move time in the browser",
+              "fullTitle": "Spies, Stubs, and Clock cy.tick() - move time in the browser",
+              "timedOut": null,
+              "duration": 412,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// https://on.cypress.io/tick\n// create the date in UTC so its always the same\n// no matter what local timezone the browser is running in\nconst now = new Date(Date.UTC(2017, 2, 14)).getTime();\ncy.clock(now);\ncy.visit('https://example.cypress.io/commands/spies-stubs-clocks');\ncy.get('#tick-div').click().should('have.text', '1489449600');\ncy.tick(10000); // 10 seconds passed\ncy.get('#tick-div').click().should('have.text', '1489449610');",
+              "err": {},
+              "uuid": "3ed68b09-00c1-4d1e-b574-584429520eb3",
+              "parentUUID": "06c7364b-553f-4b6f-b485-7f843cc201d1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.stub() matches depending on arguments",
+              "fullTitle": "Spies, Stubs, and Clock cy.stub() matches depending on arguments",
+              "timedOut": null,
+              "duration": 37,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// see all possible matchers at\n// https://sinonjs.org/releases/latest/matchers/\nconst greeter = {\n  /**\n   * Greets a person\n   * @param {string} name\n  */\n  greet(name) {\n    return `Hello, ${name}!`;\n  }\n};\ncy.stub(greeter, 'greet').callThrough() // if you want non-matched calls to call the real method\n.withArgs(Cypress.sinon.match.string).returns('Hi').withArgs(Cypress.sinon.match.number).throws(new Error('Invalid name'));\nexpect(greeter.greet('World')).to.equal('Hi'); // @ts-ignore\nexpect(() => greeter.greet(42)).to.throw('Invalid name');\nexpect(greeter.greet).to.have.been.calledTwice; // non-matched calls goes the actual method\n// @ts-ignore\nexpect(greeter.greet()).to.equal('Hello, undefined!');",
+              "err": {},
+              "uuid": "1b100af3-e072-4786-8b83-5456574751e2",
+              "parentUUID": "06c7364b-553f-4b6f-b485-7f843cc201d1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "matches call arguments using Sinon matchers",
+              "fullTitle": "Spies, Stubs, and Clock matches call arguments using Sinon matchers",
+              "timedOut": null,
+              "duration": 59,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// see all possible matchers at\n// https://sinonjs.org/releases/latest/matchers/\nconst calculator = {\n  /**\n   * returns the sum of two arguments\n   * @param a {number}\n   * @param b {number}\n  */\n  add(a, b) {\n    return a + b;\n  }\n};\nconst spy = cy.spy(calculator, 'add').as('add');\nexpect(calculator.add(2, 3)).to.equal(5); // if we want to assert the exact values used during the call\nexpect(spy).to.be.calledWith(2, 3); // let's confirm \"add\" method was called with two numbers\nexpect(spy).to.be.calledWith(Cypress.sinon.match.number, Cypress.sinon.match.number); // alternatively, provide the value to match\nexpect(spy).to.be.calledWith(Cypress.sinon.match(2), Cypress.sinon.match(3)); // match any value\nexpect(spy).to.be.calledWith(Cypress.sinon.match.any, 3); // match any value from a list\nexpect(spy).to.be.calledWith(Cypress.sinon.match.in([1, 2, 3]), 3);\n/**\n * Returns true if the given number is event\n * @param {number} x\n */\nconst isEven = x => x % 2 === 0; // expect the value to pass a custom predicate function\n// the second argument to \"sinon.match(predicate, message)\" is\n// shown if the predicate does not pass and assertion fails\n\nexpect(spy).to.be.calledWith(Cypress.sinon.match(isEven, 'isEven'), 3);\n/**\n * Returns a function that checks if a given number is larger than the limit\n * @param {number} limit\n * @returns {(x: number) => boolean}\n */\nconst isGreaterThan = limit => x => x > limit;\n/**\n * Returns a function that checks if a given number is less than the limit\n * @param {number} limit\n * @returns {(x: number) => boolean}\n */\n\nconst isLessThan = limit => x => x < limit; // you can combine several matchers using \"and\", \"or\"\n\nexpect(spy).to.be.calledWith(Cypress.sinon.match.number, Cypress.sinon.match(isGreaterThan(2), '> 2').and(Cypress.sinon.match(isLessThan(4), '< 4')));\nexpect(spy).to.be.calledWith(Cypress.sinon.match.number, Cypress.sinon.match(isGreaterThan(200), '> 200').or(Cypress.sinon.match(3))); // matchers can be used from BDD assertions\ncy.get('@add').should('have.been.calledWith', Cypress.sinon.match.number, Cypress.sinon.match(3)); // you can alias matchers for shorter test code\nconst {\n  match: M\n} = Cypress.sinon;\ncy.get('@add').should('have.been.calledWith', M.number, M(3));",
+              "err": {},
+              "uuid": "d9452bd2-7216-470c-880e-fc9df9749c70",
+              "parentUUID": "06c7364b-553f-4b6f-b485-7f843cc201d1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "cb859495-76fe-4ca0-9228-c9555ca9912d",
+            "261d54fc-3996-4174-92df-93702e933feb",
+            "b231256b-35e7-4ffa-ac51-4fa75dfb905c",
+            "6e48515e-bace-4bfd-8d38-f8b96b448c98",
+            "3ed68b09-00c1-4d1e-b574-584429520eb3",
+            "1b100af3-e072-4786-8b83-5456574751e2",
+            "d9452bd2-7216-470c-880e-fc9df9749c70"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4126,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/mochawesome-report"
+      },
+      "version": "5.2.0"
+    }
+  }
+}

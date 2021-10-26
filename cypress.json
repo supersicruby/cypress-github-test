@@ -1,0 +1,16 @@
+{
+  "viewportWidth": 1200,
+  "viewportHeight": 900,
+  "pageLoadTimeout": 120000,
+  "screenshotsFolder": "cypress/screenshots",
+  "video": false,
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "charts": true,
+    "overwrite": false,
+    "html": false,
+    "json": true,
+    "reportDir": "cypress/reports/mochawesome-report"
+  },
+  "projectId": "6phmk8"
+}

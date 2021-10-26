@@ -1,0 +1,144 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-10-25T10:35:24.017Z",
+    "end": "2021-10-25T10:35:26.648Z",
+    "duration": 2631,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b34f595f-886f-4120-a25c-56f123c2a2e9",
+      "title": "",
+      "fullFile": "cypress/integration/2-advanced-examples/window.spec.js",
+      "file": "cypress/integration/2-advanced-examples/window.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "dc52cf7a-0457-4d87-9ed4-a221501d0049",
+          "title": "Window",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "cy.window() - get the global window object",
+              "fullTitle": "Window cy.window() - get the global window object",
+              "timedOut": null,
+              "duration": 384,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// https://on.cypress.io/window\ncy.window().should('have.property', 'top');",
+              "err": {},
+              "uuid": "9ecc4e51-3760-40e2-b4cb-6e3a774e7a40",
+              "parentUUID": "dc52cf7a-0457-4d87-9ed4-a221501d0049",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.document() - get the document object",
+              "fullTitle": "Window cy.document() - get the document object",
+              "timedOut": null,
+              "duration": 241,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// https://on.cypress.io/document\ncy.document().should('have.property', 'charset').and('eq', 'UTF-8');",
+              "err": {},
+              "uuid": "8d21b6af-a75a-4412-bc2b-6b1e4e6d94dd",
+              "parentUUID": "dc52cf7a-0457-4d87-9ed4-a221501d0049",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "cy.title() - get the title",
+              "fullTitle": "Window cy.title() - get the title",
+              "timedOut": null,
+              "duration": 270,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// https://on.cypress.io/title\ncy.title().should('include', 'Kitchen Sink');",
+              "err": {},
+              "uuid": "e26b5cc2-6f19-4242-95cc-bbec5f25ecf1",
+              "parentUUID": "dc52cf7a-0457-4d87-9ed4-a221501d0049",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9ecc4e51-3760-40e2-b4cb-6e3a774e7a40",
+            "8d21b6af-a75a-4412-bc2b-6b1e4e6d94dd",
+            "e26b5cc2-6f19-4242-95cc-bbec5f25ecf1"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 895,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/mochawesome-report"
+      },
+      "version": "5.2.0"
+    }
+  }
+}
