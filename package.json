@@ -1,8 +1,7 @@
 {
     "scripts": {
-        "run-and-report-sorry": "npm run run-and-report-part-1-sorry && npm run run-and-report-part-2",
-        "run-and-report-part-1-sorry": "npm run delete-reports && npm run start-tests-sorry; true",
-        "start-tests-sorry": "currents run --browser chrome --spec 'cypress/integration/*/*' --parallel --record --key T6TFLGqXt1xfDfin --ci-build-id hello-currents",
+        "start-tests-sorry": "currents run --browser chrome --spec 'cypress/integration/*/*' --parallel --record --key T6TFLGqXt1xfDfin --ci-build-id 'Chrome 95 Headless' ",
+        
         "run-and-report-dashboard": "npm run run-and-report-part-1-dashboard && npm run run-and-report-part-2",
         "run-and-report": "npm run run-and-report-part-1 && npm run run-and-report-part-2",
         "run-and-report-part-1": "npm run delete-reports && npm run start-tests; true",
